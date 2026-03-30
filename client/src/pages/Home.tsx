@@ -11,6 +11,8 @@ import { Shield, Cpu, Mic, FileText, DollarSign, Award, Lock, ChevronDown, Phone
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427322689/4LzFDdY6BHDf2fEm56DQsJ/hdm-hero-bg-ibq5bN6CSLQnnqsaiDoPkp.webp";
 const MBAI_SHIELD = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427322689/4LzFDdY6BHDf2fEm56DQsJ/mbai-arena-shield-8e35tDNNfpfU6a3dZFXXvt.webp";
 const ABOUT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427322689/4LzFDdY6BHDf2fEm56DQsJ/hdm-about-bg-WYH6kXBcp4RWfy4LRzeLVa.webp";
+const FAITH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427322689/4LzFDdY6BHDf2fEm56DQsJ/hdm-faith-church-dmBi7vi7Jc2Jr9TdQnuatu.webp";
+const CORP_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427322689/4LzFDdY6BHDf2fEm56DQsJ/hdm-corporate-business-CEH2vZaPht9kMCC6PeECuX.webp";
 
 const systems = [
   {
@@ -397,28 +399,23 @@ export default function Home() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: <Cpu size={24} className="text-gold" />,
-                title: "Corporate & SMB",
-                desc: "Small and mid-size businesses across the Chicago metro area are drowning in administrative overhead. HDM's AI systems eliminate that burden — freeing owners and teams to focus on growth, client relationships, and revenue-generating activities.",
-                items: ["Real Estate & Property Management", "Legal & Professional Services", "Healthcare & Dental Practices", "Consulting & Financial Services", "Retail & Service Businesses"],
-              },
-              {
-                icon: <Star size={24} className="text-gold" />,
-                title: "Faith-Based Organizations",
-                desc: "Churches and ministries are actively adopting AI — but they need a partner who understands their culture, their values, and their mission. HDM's faith-integrated approach delivers technology that amplifies ministry without compromising identity.",
-                items: ["Independent & Denominational Churches", "Ministry Organizations & Nonprofits", "Christian Schools & Education", "Pastoral Counseling Centers", "Faith-Based Community Organizations"],
-              },
-            ].map((m) => (
-              <AnimatedSection key={m.title}>
-                <div className="sys-card rounded-sm p-8 bg-card h-full">
-                  <div className="mb-4">{m.icon}</div>
-                  <h3 className="text-2xl font-light text-white mb-3">{m.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed mb-6">{m.desc}</p>
+            {/* Corporate & SMB */}
+            <AnimatedSection>
+              <div className="sys-card rounded-sm bg-card h-full overflow-hidden flex flex-col">
+                <div className="relative h-52 overflow-hidden">
+                  <img src={CORP_IMG} alt="Corporate boardroom" className="w-full h-full object-cover opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                  <div className="absolute bottom-4 left-6 flex items-center gap-2">
+                    <Cpu size={18} className="text-gold" />
+                    <span className="badge-gold">CORPORATE &amp; SMB</span>
+                  </div>
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="text-2xl font-light text-white mb-3">The Boardroom</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">Small and mid-size businesses across the Chicago metro area are drowning in administrative overhead. HDM's AI systems eliminate that burden — freeing owners and teams to focus on growth, client relationships, and revenue-generating activities.</p>
                   <div className="gold-rule mb-5" />
                   <ul className="space-y-2">
-                    {m.items.map(i => (
+                    {["Real Estate & Property Management", "Legal & Professional Services", "Healthcare & Dental Practices", "Consulting & Financial Services", "Retail & Service Businesses"].map(i => (
                       <li key={i} className="flex items-center gap-2 text-white/50 text-sm">
                         <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
                         {i}
@@ -426,8 +423,35 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
-              </AnimatedSection>
-            ))}
+              </div>
+            </AnimatedSection>
+
+            {/* Faith-Based Organizations */}
+            <AnimatedSection>
+              <div className="sys-card rounded-sm bg-card h-full overflow-hidden flex flex-col">
+                <div className="relative h-52 overflow-hidden">
+                  <img src={FAITH_IMG} alt="Church sanctuary" className="w-full h-full object-cover opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                  <div className="absolute bottom-4 left-6 flex items-center gap-2">
+                    <Star size={18} className="text-gold" />
+                    <span className="badge-gold">FAITH-BASED</span>
+                  </div>
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="text-2xl font-light text-white mb-3">The Sanctuary</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">Churches and ministries are actively adopting AI — but they need a partner who understands their culture, their values, and their mission. HDM's faith-integrated approach delivers technology that amplifies ministry without compromising identity.</p>
+                  <div className="gold-rule mb-5" />
+                  <ul className="space-y-2">
+                    {["Independent & Denominational Churches", "Ministry Organizations & Nonprofits", "Christian Schools & Education", "Pastoral Counseling Centers", "Faith-Based Community Organizations"].map(i => (
+                      <li key={i} className="flex items-center gap-2 text-white/50 text-sm">
+                        <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
+                        {i}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
